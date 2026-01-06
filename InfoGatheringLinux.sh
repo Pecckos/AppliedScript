@@ -9,25 +9,61 @@
 # Last Update: 2026/06/01
 
 
-echo "Välkommen till RECON script för att kontrollera en Linux-miljö"
+echo "Welcome to  RECON script to se how Linux enviroment is doing"
 
 echo
 echo "=== SYSTEMINFO ==="
 uname -a
+echo
+
+echo "=== OS-RELEASE ==="
+cat /etc/os-release 2>/dev/null
+echo
+
+echo "=== CURRENT USER ==="
+whoami
+echo
+
+echo "=== LOGGED IN USER  ==="
+who
+echo
+
+echo "=== USER WITH SHELL ==="
+grep -E "sh$" /etc/passwd
+echo
+
+echo "=== HARDWARE ==="
+lscpu 2>/dev/null | grep -E "Model name|CPU\(s\)"
+echo
+
+echo "=== SPACE  ==="
+free -h
+echo
+
+echo "=== DISK ==="
+lsblk
+echo
 
 echo
-echo "=== AKTUELL ANVÄNDARE ==="
-echo $USER
-
-echo
-echo "=== ANVÄNDARE MED SHELL ==="
-grep "sh$" /etc/passwd
-
-echo
-echo "=== NÄTVERK ==="
+echo "=== NETWORK ==="
 ip a | grep inet
+echo
 
 echo
-echo "=== LÄGG TILL FLERA TESTER  ==="
+echo "=== ROUTING ==="
+ip route
+echo
 
-# skriv in dina egna kommandon för tester
+echo
+echo "=== LISTENING PORTS ==="
+ss -tuln
+echo
+
+echo "=== SERVICES ==="
+command -v python3 && python3 --version
+command -v git && git --version
+echo 
+
+echo "=== ACTIVE SERVICES ==="
+systemctl list-units --type=service --state=running | head -n 10
+echo
