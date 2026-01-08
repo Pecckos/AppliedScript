@@ -1,9 +1,5 @@
 #!/bin/bash
 #
-# Detta script samlar in systeminformation - RECON
-#
-# Kan användas för följande attacker:
-# [Skriv möjliga attacker]
 #
 # Author: Jessica B
 # Last Update: 2026/06/01
