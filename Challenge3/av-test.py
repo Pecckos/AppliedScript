@@ -40,7 +40,7 @@ time.sleep(5)  # Wait for antivirus to scan the file
 
 if not os.path.exists(file_path):
     print("EICAR testfile deleted.")
-    print("EICAR testfile has been removed pr  by AV/EDR.")
+    print("EICAR testfile has been removed by AV/EDR.")
     print("Antivirus is functioning correctly.")
     exit(0)
 
